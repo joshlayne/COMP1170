@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Dividing the page into sections</title>
+        <style>
+            body { 
+                font-family: 'Verdana';
+                background-color: rgb(255, 251, 21);
+            }
+
+            #header {
+                background-color: black;
+                color: white;
+            }
+
+            #title {
+                border: 10px solid #191919;
+                background-color: #191919;
+                font-size: 30px;
+            }
+
+            #subtitle {
+                padding-bottom: 20px;
+            }
+
+            #container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                max-height: fit-content;
+            }
+
+            #content{
+                width: 90%;
+            }
+
+            #menu {
+                font-size: 20px;
+                padding-left: 20px;
+                margin-left: 15px;
+                width: 30%;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div id="header">
+            <table>
+                <th id="title">Exercise 13</th>
+                <tr>
+                    <td id="subtitle">A page with sections!</td>
+                </tr>
+            </table>
+        </div>
+        <div id="container">
+            <div id="menu">
+                <h2>My Menu</h2>
+                <ul>
+                    <li>BBC News</li>
+                    <li>Google</li>
+                    <li>Amazon UK</li>
+                </ul>
+            </div>
+            <div id="content">
+                <p>The rest of my page is going to go here.</p>
+                <p>Complicated page - but cool!</p>
+            </div>
+        </div>
+    </body>
+</html>
