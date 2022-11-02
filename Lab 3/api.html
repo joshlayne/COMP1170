@@ -1,0 +1,65 @@
+<!-- API key: IcWpFhJJER8zoFLZycl5DK2ox1ZIIkk9 -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    </head>
+    <body>
+        <script>
+            /* var myHeaders = new Headers();
+            myHeaders.append("apikey", "IcWpFhJJER8zoFLZycl5DK2ox1ZIIkk9");
+
+            var requestOptions = {
+            method: 'GET',
+            redirect: 'follow',
+            headers: myHeaders
+            };
+
+            fetch("https://api.apilayer.com/exchangerates_data/latest?symbols=bbd%2C%20usd%2C%20gbp%2C%20cad%2C%20jpy%2C%20cny&base=bbd", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error)); */
+
+            var input = prompt("Please enter a currency: ", "BBD");
+            var output = prompt("Please enter another currency: ", "USD");
+            var num = prompt("Please enter the amount you want to convert: ", "0");
+
+            const from = input;
+            const to = output;
+            const amount = num;
+            const url = `https://api.apilayer.com/exchangerates_data/convert?to=${ to }&from=${ from }&amount=${ amount }`;
+
+            var myHeaders = new Headers();
+            myHeaders.append("apikey", "IcWpFhJJER8zoFLZycl5DK2ox1ZIIkk9");
+
+            var requestOptions = {
+            method: 'GET',
+            redirect: 'follow',
+            headers: myHeaders
+            };
+
+            // Get the most recent exchange rates via the "latest" endpoint:
+            fetch(url, requestOptions)
+            .then(response => response.json())
+            .then(data => {
+            if (data.error) {
+                console.log('Error:', data.error);
+                return;
+            }
+            document.write('Target amount: ' + amount, ' ' + from, '<br>')
+            document.write('Converted amount: ' + data.result, ' ' + to, '<br>');
+            document.write('Exchange rate: 1 ' + from + ' = ' + data.info.rate + ' ' + to + '.');
+
+            // Console Output
+            console.log('Success:', data);
+            console.log('Converted amount: ' + data.result);
+            console.log('(Exchange rate: ' + data.info.rate + ')');
+            })
+            .catch((error) => {
+            console.error('Error:', error);
+            });
+
+        </script>
+    </body>
+</html>
