@@ -57,6 +57,8 @@
             console.log('(Exchange rate: ' + data.info.rate + ')');
             })
             .catch((error) => {
+            document.write('Error:', error);
+            // Console output
             console.error('Error:', error);
             });
 
